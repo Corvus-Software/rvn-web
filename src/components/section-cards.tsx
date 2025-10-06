@@ -27,7 +27,7 @@ export function SectionCards() {
     const trendTrackId = trends.track_id;
     if (trendTrackId) {
       const matchedSession = sessions.find(
-        (session) => session.track_id === trendTrackId
+        (session: { track_id: string; track_name?: string }) => session.track_id === trendTrackId
       );
       if (matchedSession && matchedSession.track_name) {
         setTrackName(matchedSession.track_name);
@@ -46,6 +46,7 @@ export function SectionCards() {
 
   function findKeyEndingWith(suffix: string) {
     if (!metrics) return undefined;
+
     return Object.keys(metrics).find((key) => key.endsWith(suffix));
   }
 
@@ -62,6 +63,7 @@ export function SectionCards() {
 
   function formatDelta(value: number, unit = "") {
     const sign = value > 0 ? "+" : "";
+
     return `${sign}${value.toFixed(2)}${unit}`;
   }
 

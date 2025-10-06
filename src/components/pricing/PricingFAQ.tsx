@@ -48,6 +48,7 @@ export default function PricingFAQ() {
       <div className="w-full max-w-3xl flex flex-col gap-4">
         {faqs.map((faq, index) => {
           const isOpen = index === openIndex;
+          
           return (
             <motion.div
               key={faq.question}

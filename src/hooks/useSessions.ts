@@ -1,15 +1,8 @@
 "use client";
 import useSWR from "swr";
-import { createSupabaseClientWithAuth } from "@/lib/supabase";
-import { useAuth } from "@clerk/nextjs";
+import { supabase } from "@/lib/supabase";
 
 const fetchSessions = async () => {
-  const { getToken } = useAuth();
-  const token = await getToken({ template: "supabase" });
-  if (!token) throw new Error("No auth token found");
-
-  const supabase = createSupabaseClientWithAuth(token);
-
   const { data, error } = await supabase
     .from("sessions")
     .select("*")
@@ -18,18 +11,13 @@ const fetchSessions = async () => {
     .order("created_at", { ascending: false });
 
   if (error) throw error;
+
   return data;
 };
 
 export function useSessions() {
-  const { getToken } = useAuth();
 
   const fetcher = async () => {
-    const token = await getToken({ template: "supabase" });
-    if (!token) throw new Error("No auth token found");
-
-    const supabase = createSupabaseClientWithAuth(token);
-
     const { data, error } = await supabase
       .from("sessions")
       .select("*")
@@ -37,6 +25,7 @@ export function useSessions() {
       .order("created_at", { ascending: false });
 
     if (error) throw error;
+
     return data;
   };
 

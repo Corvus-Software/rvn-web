@@ -396,6 +396,7 @@ export function DataTable({
       setData((data) => {
         const oldIndex = dataIds.indexOf(active.id)
         const newIndex = dataIds.indexOf(over.id)
+        
         return arrayMove(data, oldIndex, newIndex)
       })
     }

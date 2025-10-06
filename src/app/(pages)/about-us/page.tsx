@@ -1,16 +1,21 @@
 "use client";
 
 import NavBar from "@/components/NavBar";
-import { motion } from "framer-motion";
+import { motion, easeOut} from "framer-motion";
 import Image from "next/image";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 40 },
-  animate: { opacity: 1, y: 0 },
-  transition: { delay, duration: 0.6, ease: "easeOut" },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: { delay, duration: 0.6, ease: easeOut },
+  },
 });
 
+
 export default function AboutPage() {
+
   return (
     <main className="relative min-h-screen w-full bg-black text-white overflow-hidden">
       {/* Neon fades (same as HomePage) */}

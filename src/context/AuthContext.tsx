@@ -60,13 +60,16 @@ export const AuthContextProvider: React.FC<AuthProviderProps> = ({
 
       if (error) {
         console.error("Sign-in error:", error.message);
+
         return { success: false, error: error.message };
       }
 
       console.log("Sign-in success:", data);
+
       return { success: true, data };
     } catch (err: any) {
       console.error("Unexpected error during sign-in:", err.message);
+
       return {
         success: false,
         error: "An unexpected error occurred. Please try again.",
@@ -115,5 +118,6 @@ export const UserAuth = () => {
   if (!context) {
     throw new Error("UserAuth must be used within an AuthContextProvider");
   }
+  
   return context;
 };

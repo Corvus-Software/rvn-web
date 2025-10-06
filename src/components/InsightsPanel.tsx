@@ -1,7 +1,6 @@
 "use client";
 
-import { useInsights } from "@/hooks/useInsights";
-import { Insight } from "@/hooks/useInsights";
+import { Insight, useInsights } from "@/hooks/useInsights";
 import {
   Card,
   CardHeader,

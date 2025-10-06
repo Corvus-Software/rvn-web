@@ -38,6 +38,7 @@ export function NavUser() {
   }
 
   console.log("Logged in as:", session.user.email);
+  
   return (
     <SidebarMenu>
       <SidebarMenuItem>

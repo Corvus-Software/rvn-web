@@ -181,12 +181,14 @@ export function CarouselDemo({
   const sessionsWithDateTime = sessions.map((session) => {
     if (session.created_at) {
       const d = new Date(session.created_at);
+
       return {
         ...session,
         date: d.toLocaleDateString(),
         time: d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
       };
     }
+    
     return session;
   });
 

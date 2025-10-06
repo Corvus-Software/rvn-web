@@ -112,6 +112,7 @@ function lapTimeToMs(time: string): number {
     ms += parseInt(mm, 10) * 60 * 1000;
     ms += parseFloat(ss) * 1000;
   } else ms = parseFloat(time) * 1000;
+
   return ms;
 }
 
@@ -162,6 +163,7 @@ export default function SessionDetailPage() {
       console.error("Error fetching lap data:", error);
       setCorners([]);
       setLoadingCorners(false);
+
       return;
     }
 
@@ -187,8 +189,8 @@ export default function SessionDetailPage() {
   // --- Compute fastest lap ---
   const fastestLapIndex = laps.reduce((fastestIdx, lap, idx) => {
     const lapMs = lapTimeToMs(lap.time);
-    const fastestMs =
-      fastestIdx === -1 ? Infinity : lapTimeToMs(laps[fastestIdx].time);
+    const fastestMs = fastestIdx === -1 ? Infinity : lapTimeToMs(laps[fastestIdx].time);
+    
     return lapMs < fastestMs ? idx : fastestIdx;
   }, -1);
 

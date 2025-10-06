@@ -23,6 +23,7 @@ export async function POST(req: Request) {
           { status: 400 }
         );
       }
+
       return NextResponse.json({ error: insertError.message }, { status: 400 });
     }
 
@@ -118,6 +119,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ position });
   } catch (err: any) {
     console.error("Waitlist API error:", err);
+    
     return NextResponse.json(
       { error: "Internal Server Error" },
       { status: 500 }

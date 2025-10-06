@@ -2,11 +2,11 @@
 
 import { useState, useEffect, useRef } from "react";
 
-import { SidebarProvider } from "@/registry/new-york-v4/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import {
   SidebarInset,
   SidebarTrigger,
+  SidebarProvider,
 } from "@/registry/new-york-v4/ui/sidebar";
 
 import {
