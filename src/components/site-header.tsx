@@ -24,7 +24,7 @@ export function SiteHeader({ siteHeader, onRefresh }: Props) {
           />
           <h1 className="text-base font-medium">{siteHeader}</h1>
         </div>
-        <RefreshButton onRefresh={onRefresh} />
+        <RefreshButton onRefresh={onRefresh ?? (() => {})} />
       </div>
     </header>
   );

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { createSupabaseClientWithAuth } from "@/lib/supabase"; // your function to create Supabase client with auth token
+import { supabase } from "@/lib/supabase"; 
 import { useAuth } from "@clerk/nextjs";
 
 interface CornerPoint {
@@ -23,7 +23,6 @@ export function useTrackCorners(trackId: string | null) {
         const token = await getToken({ template: "supabase" });
         if (!token) throw new Error("No auth token found");
 
-        const supabase = createSupabaseClientWithAuth(token);
 
         const { data, error } = await supabase
           .from("track_configurations")

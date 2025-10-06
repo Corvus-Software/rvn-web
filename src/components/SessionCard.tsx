@@ -1,7 +1,20 @@
 import { Card, CardContent } from "@/registry/new-york-v4/ui/card";
 import { Clock, MapPin } from "lucide-react";
 
-export function SessionCard({ session }: { session: (typeof sessions)[0] }) {
+type Session = {
+  location: string;
+  date: string;
+  time: string;
+  fastestLap: string;
+  averageLap: string;
+  topSpeed: string;
+  totalLaps: string;
+  maxLean: string;
+  avgLean: string;
+  trackTemp: string;
+};
+
+export function SessionCard({ session }: { session: Session }) {
   return (
     <Card className="bg-muted/30 text-white rounded-xl shadow-sm">
       <CardContent className="p-4 flex flex-col gap-4">
