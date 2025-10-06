@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useAuth } from "@clerk/nextjs";
 import { supabase } from "@/lib/supabase"; // helper to create client with token
 
 export function useSessionTrends() {
