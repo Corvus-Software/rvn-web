@@ -1,8 +1,6 @@
 "use client";
 
 import { AppSidebar } from "@/components/app-sidebar";
-import { SectionCards } from "@/components/section-cards";
-import { SiteHeader } from "@/components/site-header";
 import { CarouselDemo } from "@/components/carousel-demo";
 import { RefreshButton } from "@/components/RefreshBtn";
 import { useSessionTrends } from "@/hooks/useTrends";
@@ -14,7 +12,6 @@ import {
 import InsightsPanel from "@/components/InsightsPanel";
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase"; 
-import { useAuth, useUser } from "@clerk/nextjs";
 import { UserAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 

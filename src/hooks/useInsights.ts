@@ -2,7 +2,6 @@
 
 import useSWR from "swr";
 import { supabase } from "@/lib/supabase";
-import { useAuth, useUser } from "@clerk/nextjs";
 
 export type Insight = {
   id: string;
