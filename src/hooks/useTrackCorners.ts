@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase"; 
-import { useAuth } from "@clerk/nextjs";
 
 interface CornerPoint {
   lat: number;
@@ -12,7 +11,6 @@ interface CornerPoint {
 export function useTrackCorners(trackId: string | null) {
   const [corners, setCorners] = useState<CornerPoint[] | null>(null);
   const [loading, setLoading] = useState(true);
-  const { getToken } = useAuth();
 
   useEffect(() => {
     if (!trackId) return;
@@ -20,10 +18,6 @@ export function useTrackCorners(trackId: string | null) {
     const fetchCorners = async () => {
       setLoading(true);
       try {
-        const token = await getToken({ template: "supabase" });
-        if (!token) throw new Error("No auth token found");
-
-
         const { data, error } = await supabase
           .from("track_configurations")
           .select("corners")
@@ -44,7 +38,7 @@ export function useTrackCorners(trackId: string | null) {
     };
 
     fetchCorners();
-  }, [trackId, getToken]);
+  }, [trackId]);
 
   return { corners, loading };
 }
