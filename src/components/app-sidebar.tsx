@@ -20,8 +20,6 @@ import {
   IconRobot,
 } from "@tabler/icons-react";
 
-import { useUser } from "@clerk/nextjs";
-
 import { NavMain } from "@/components/nav-main"
 import { NavSecondary } from "@/components/nav-secondary"
 import { NavUser } from "@/components/nav-user"
